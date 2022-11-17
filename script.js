@@ -76,7 +76,7 @@ let timer;
 exam.addEventListener('click', () => {
     timer = setInterval(() => {
         seconds++;
-        if (seconds == 60) {
+        if (seconds === 60) {
             seconds = 0;
             minutes++;
         }
@@ -105,8 +105,8 @@ exam.addEventListener('click', () => {
             container.append(firstCard);
         }
 
-        var divs = container.children;
-        var frag = document.createDocumentFragment();
+        let divs = container.children;
+        let frag = document.createDocumentFragment();
         while (divs.length) {
             frag.appendChild(divs[Math.floor(Math.random() * divs.length)]);
         }
@@ -123,23 +123,23 @@ let finishIndex = 0;
 
 container.addEventListener('click', (event) => {
     let card = event.target.closest(".card");
-    if (click == false) {
+    if (click === false) {
         card.classList.add('correct');
         one = card;
         indexOne = worlds.frontWorlds.indexOf(card.textContent);
-        if (indexOne == -1) {
+        if (indexOne === -1) {
             indexOne = worlds.backWorlds.indexOf(card.textContent);
         }
 
         click = true;
 
-    } else if (click == true) {
+    } else if (click === true) {
         two = card;
         indexTwo = worlds.frontWorlds.indexOf(card.textContent);
-        if (indexTwo == -1) {
+        if (indexTwo === -1) {
             indexTwo = worlds.backWorlds.indexOf(card.textContent);
         }
-        if (indexOne == indexTwo) {
+        if (indexOne === indexTwo) {
             document.querySelector("#correct-percent").textContent = getProgress(finishIndex) + "%";
             finishIndex++;
             two.classList.add("correct");
@@ -151,7 +151,7 @@ container.addEventListener('click', (event) => {
             }
             click = false;
             progressExam.value = getProgress(finishIndex);
-        } else if (indexOne != indexTwo) {
+        } else if (indexOne !== indexTwo) {
             click = false;
             two.classList.add("wrong");
             setTimeout(() => {
