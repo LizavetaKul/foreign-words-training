@@ -145,7 +145,7 @@ container.addEventListener('click', (event) => {
             two.classList.add("correct");
             one.classList.add("fade-out");
             two.classList.add("fade-out");
-            if (finishIndex == sizeArray) {
+            if (finishIndex === sizeArray) {
                 clearInterval(timer);
                 alert("the end");
             }
